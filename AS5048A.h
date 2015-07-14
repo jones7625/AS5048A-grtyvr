@@ -36,7 +36,9 @@ Created by Guy Thomas, July 2015
 class AS5048
 {
   Public:
-  
+    // Constructors
+    AS5048(int _arg_cs_pin);                        // single sensor on a seperate Cable Select pin
+    AS5048(int _arg_cs_pin, int _arg_num_sensors);  // _arg_num_sensors daisy chained with Cable Select = _arg_cs_pin 
   Private:
   bit _Parity;
 }
