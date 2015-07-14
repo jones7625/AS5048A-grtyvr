@@ -42,8 +42,8 @@ class AS5048
 {
   Public:
     // Constructors
-    AS5048(int _arg_cs_pin);                        // single sensor on a seperate Cable Select pin
-    AS5048(int _arg_cs_pin, int _arg_num_sensors);  // _arg_num_sensors daisy chained with Cable Select = _arg_cs_pin 
+    AS5048(int arg_cableSelect_pin);                        // single sensor on a seperate Cable Select pin
+    AS5048(int arg_cableSelect_pin, int arg_num_sensors);   // arg_num_sensors daisy chained with Cable Select = arg_cableSelect_pin 
     // Initializer that will set up the SPI bus.
     void init();
     // close the SPI bus
