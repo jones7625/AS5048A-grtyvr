@@ -31,7 +31,12 @@ Created by Guy Thomas, July 2015
 #define AS5048A_REGISTER_MAGNITUDE 0x3FFE           // Magnitude register
 #define AS5048A_REGISTER_ANGLE 0x3FFF               // Angle information after zero position adder (if any)
 
+#if defined(ARDUINO) && ARDUINO >= 100
 #include "Arduino.h"
+#else
+#include "WProgram.h"
+#endif
+#include "SPI.h"
 
 class AS5048
 {
@@ -39,7 +44,13 @@ class AS5048
     // Constructors
     AS5048(int _arg_cs_pin);                        // single sensor on a seperate Cable Select pin
     AS5048(int _arg_cs_pin, int _arg_num_sensors);  // _arg_num_sensors daisy chained with Cable Select = _arg_cs_pin 
+    // Initializer that will set up the SPI bus.
+    void init();
+    // close the SPI bus
+    void close();
+    // read a register
+    word readAngle(word registerAddress);
   Private:
-  bit _Parity;
+  byte _calc_even_parity(word value);
 }
 #endif
