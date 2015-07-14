@@ -16,13 +16,17 @@
 /*
   Constructor for single sensor SPI
 */
-AS5048::AS5048(byte ar_cableSelect){
-  _cableSelect = art_cableSelect);
+AS5048::AS5048(byte arg_cableSelect_pin){
+  _cableSelect = arg_cableSelect_pin);
   errorFlag = false;
   position = 0;
   pinMode(_cableSelect, OUTPUT);
 }
 
-AS5048::AS5048(byte arg_cableSelect, byte arg_numSensors){
-
+AS5048::AS5048(byte arg_cableSelect_pin, byte arg_num_sensors){
+  _cableSelect = arg_cableSelect_pin;
+  _numSensors = arg_num_sensors;
+  errorFlag = false;
+  position = 0;
+  pinMode(_cableSelect, OUTPUT);
 }
